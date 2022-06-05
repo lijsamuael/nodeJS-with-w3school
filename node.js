@@ -17,12 +17,22 @@ http.createServer(function(req, res) {
     */
 }).listen(8080);
 
-//creating a file 
+/*creating a file 
 
 fs.appendFile(
     'newfile.txt', 'Hello This is a file created by node js file!',
     function(err) {
         if (err) throw err;
         console.log('Saved!');
+    }
+);
+*/
+
+//opening a file
+fs.open(
+    'newfile.txt', 'w',
+    function(err, file) {
+        if (err) throw err;
+        console.log('Saved');
     }
 );
