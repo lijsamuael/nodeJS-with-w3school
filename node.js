@@ -48,7 +48,7 @@ fs.writeFile(
 );
 */
 
-// deleting a file
+/*deleting a file
 
 fs.unlink(
     'newfile2.txt',
@@ -57,3 +57,17 @@ fs.unlink(
         console.log('File Deleted');
     }
 );
+
+*/
+
+//*********************working with url module************************************* */
+
+var url = require('url');
+var adr = 'https://localhost:8080/index.html?name=Samuael&age=22';
+var q = url.parse(adr, true);
+console.log(q.host);
+console.log(q.pathname);
+console.log(q.search);
+var qdata = q.query;
+console.log(qdata.name);
+console.log(qdata.age);
