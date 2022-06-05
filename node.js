@@ -28,11 +28,20 @@ fs.appendFile(
 );
 */
 
-//opening a file
+/*opening a file
 fs.open(
     'newfile.txt', 'w',
     function(err, file) {
         if (err) throw err;
         console.log('Saved');
+    }
+);
+*/
+//writing a file that may replace it the specified file exist
+fs.writeFile(
+    'newfile2.txt', 'This is another file',
+    function(err) {
+        if (err) throw err;
+        console.log('File replaced');
     }
 );
