@@ -103,7 +103,7 @@ http.createServer(function(req, res) {
 }).listen(7070);
 */
 
-// uploading
+/*uploading a file
 var formidable = require('formidable');
 var fs = require('fs');
 http.createServer(function(req, res) {
@@ -127,3 +127,41 @@ http.createServer(function(req, res) {
         return res.end();
     }
 }).listen(7070);
+*/
+
+// node.js email
+
+var nodemailer = require('nodemailer');
+var tls = require('tls');
+
+var transporter = nodemailer.createTransport({
+
+    host: 'smtp.gmail.com',
+    port: 25,
+    logger: true,
+    service: 'gmail',
+    auth: {
+        user: 'lijsamuael@gmail.com',
+        pass: 'lijsamuael.orthopia.com'
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
+var mailOptions = {
+
+    from: 'lijsamuael@gmail.com',
+    to: 'samict77@gmail.com',
+    subject: 'Sending email using Node.js',
+    text: 'Hello Samuel This is an email send from your main email using Node js and i am happy with this because if you seee this message that means i am able to add one grain of senafich to the greatest kimr ORTHOPIA 2033'
+};
+
+transporter.sendMail(mailOptions, function(error, info) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Email has been sent successfully :  ' + info.response);
+    }
+
+});
