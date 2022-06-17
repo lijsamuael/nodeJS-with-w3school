@@ -32,10 +32,35 @@ con.connect(function(err) {
     */
 
     //Altering a table
+
+    /*
     var alter = "ALTER TABLE Student ADD COLUMN gender varchar(1)";
     con.query(alter, function(err, result) {
         if (err) throw err;
         console.log("The Student table is altered and now it has another column called gender");
+
+    });
+    */
+
+    //inserting values to the table
+    // inserting a single value
+    /*
+    var insert = "INSERT INTO Student VALUES (1, 'Sami', 22, 'M')";
+    con.query(insert, function(err, result) {
+        if (err) throw err;
+        console.log("1 recored inserted");
+    });
+    */
+
+    //inserting multiple values
+    var insert = "INSERT INTO Student VALUES ?";
+    var values = [
+        [10, 'Dagne', 32, 'M'],
+        [9, 'Sewalem', 29, 'M'],
+    ];
+    con.query(insert, [values], function(err, results) {
+        if (err) throw err;
+        console.log(" 2 rows are inserted");
     });
 
 });
