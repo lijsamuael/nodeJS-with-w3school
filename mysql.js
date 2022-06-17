@@ -22,14 +22,20 @@ con.connect(function(err) {
     */
 
     //creating a table
+    /*
 
     var sql = "CREATE TABLE Student (id int auto_increment primary key, name varchar(20), age varchar(1))";
     con.query(sql, function(err, result) {
         if (err) throw err;
         console.log("A table named Student created.");
     });
+    */
 
-
-
+    //Altering a table
+    var alter = "ALTER TABLE Student ADD COLUMN gender varchar(1)";
+    con.query(alter, function(err, result) {
+        if (err) throw err;
+        console.log("The Student table is altered and now it has another column called gender");
+    });
 
 });
