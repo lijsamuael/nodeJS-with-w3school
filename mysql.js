@@ -53,14 +53,22 @@ con.connect(function(err) {
     */
 
     //inserting multiple values
+    /*
     var insert = "INSERT INTO Student VALUES ?";
     var values = [
         [10, 'Dagne', 32, 'M'],
         [9, 'Sewalem', 29, 'M'],
     ];
-    con.query(insert, [values], function(err, results) {
+    con.query(insert, [values], function(err, result) {
         if (err) throw err;
         console.log(" 2 rows are inserted");
+    });
+    */
+
+    //selecting values from a table
+    con.query("SELECT *FROM student", function(err, result) {
+        if (err) throw err;
+        console.log(result);
     });
 
 });
